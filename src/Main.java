@@ -1,26 +1,25 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Main {
     public static void main(String[] args) {
-        Inventory inv = new Inventory();
+        List<GameItem> gameItemList = new ArrayList<>();
+        GameItem weapon = new Weapon("Longsword", 2, 10, 15, ItemRarity.COMMON);
+        GameItem armor = new Armor("Chainmail", 21, 30, 15, ItemRarity.RARE);
 
-        inv.addItem(new Weapon("Longsword", 1, 10, 9, ItemRarity.RARE));
-        inv.addItem(new Armor("Chainmail", 2, 30, 15, ItemRarity.COMMON));
+        gameItemList.add(weapon);
+        gameItemList.add(armor);
 
-        try {
-            try {
-                inv.addItem(null);
-            } catch (IllegalArgumentException e) {
-                System.out.println(e);
+        Action<GameItem> printName = item -> System.out.println("Name: " + item.getName());
+        Action<GameItem> durabilityCheck = item -> {
+            if (item instanceof Durable durable) {
+                System.out.println(item.getName() + " durability: " + durable.getDurability());
             }
+        };
 
-            try {
-                inv.getItemByName("nonexistent");
-            } catch (ItemNotFoundException e) {
-                System.out.println(e);
-            }
-        }
-
-        finally {
-            System.out.println("Inventory check complete");
+        for (GameItem gameItem : gameItemList) {
+            printName.perform(gameItem);
+            durabilityCheck.perform(gameItem);
         }
     }
 }
