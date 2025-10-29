@@ -1,15 +1,26 @@
 public class Main {
     public static void main(String[] args) {
-        int x = 10;
-        Weapon longsword = new Weapon("Longsword", 2, 15, 20, ItemRarity.EPIC);
+        Inventory inv = new Inventory();
 
-        System.out.println(x);
-        System.out.println(longsword.getDurability());
+        inv.addItem(new Weapon("Longsword", 1, 10, 9, ItemRarity.RARE));
+        inv.addItem(new Armor("Chainmail", 2, 30, 15, ItemRarity.COMMON));
 
-        ValueReferenceDemo.changePrimitive(x);
-        ValueReferenceDemo.changeObject(longsword);
+        try {
+            try {
+                inv.addItem(null);
+            } catch (IllegalArgumentException e) {
+                System.out.println(e);
+            }
 
-        System.out.println(x);
-        System.out.println(longsword.getDurability());
+            try {
+                inv.getItemByName("nonexistent");
+            } catch (ItemNotFoundException e) {
+                System.out.println(e);
+            }
+        }
+
+        finally {
+            System.out.println("Inventory check complete");
+        }
     }
 }
