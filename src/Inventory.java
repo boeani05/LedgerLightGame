@@ -23,4 +23,10 @@ public class Inventory {
         }
         throw new ItemNotFoundException("Item " + name + " has not been found!");
     }
+
+    public void forEach(Action<GameItem> action) {
+        for (GameItem item : gameItems) {
+            action.perform(item);
+        }
+    }
 }
