@@ -1,4 +1,5 @@
-import java.lang.annotation.Documented;
+package org.bernhard.ledgerlight.model;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,7 +15,7 @@ public class Inventory {
 
     public void addItem(GameItem gameItem) {
         if (gameItem == null) {
-            throw new IllegalArgumentException("Item cannot be null");
+            throw new IllegalArgumentException("org.bernhard.ledgerlight.model.Item cannot be null");
         }
         gameItems.add(gameItem);
     }
@@ -25,7 +26,7 @@ public class Inventory {
                 return item;
             }
         }
-        throw new ItemNotFoundException("Item " + name + " has not been found!");
+        throw new ItemNotFoundException("org.bernhard.ledgerlight.model.Item " + name + " has not been found!");
     }
 
     public void forEach(Action<GameItem> action) {

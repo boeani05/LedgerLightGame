@@ -1,3 +1,5 @@
+package org.bernhard.ledgerlight.model;
+
 public class Armor extends Item implements Describable, Durable {
     private final int defense;
     private int durability;

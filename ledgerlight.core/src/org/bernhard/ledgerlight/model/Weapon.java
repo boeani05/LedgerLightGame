@@ -1,3 +1,5 @@
+package org.bernhard.ledgerlight.model;
+
 public class Weapon extends Item implements Describable, Durable {
     private StatBlock stats;
     private int durability;

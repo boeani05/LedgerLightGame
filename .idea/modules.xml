@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/LedgerLightProject.iml" filepath="$PROJECT_DIR$/LedgerLightProject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ledgerlight.app/ledgerlight.app.iml" filepath="$PROJECT_DIR$/ledgerlight.app/ledgerlight.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ledgerlight.core/ledgerlight.core.iml" filepath="$PROJECT_DIR$/ledgerlight.core/ledgerlight.core.iml" />
     </modules>
   </component>
 </project>

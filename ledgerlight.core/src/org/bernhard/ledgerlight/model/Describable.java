@@ -1,3 +1,5 @@
+package org.bernhard.ledgerlight.model;
+
 public interface Describable {
     String describe();
 

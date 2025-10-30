@@ -1,3 +1,5 @@
+package org.bernhard.ledgerlight.model;
+
 abstract class GameItem {
     private String name;
     private int quantity;

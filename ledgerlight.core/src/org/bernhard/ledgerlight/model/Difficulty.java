@@ -1,3 +1,5 @@
+package org.bernhard.ledgerlight.model;
+
 public enum Difficulty {
     EASY(1),
     MEDIUM(2),

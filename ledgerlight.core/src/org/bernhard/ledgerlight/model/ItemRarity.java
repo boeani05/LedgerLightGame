@@ -1,3 +1,5 @@
+package org.bernhard.ledgerlight.model;
+
 public enum ItemRarity {
     COMMON {
         @Override
