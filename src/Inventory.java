@@ -1,6 +1,10 @@
+import java.lang.annotation.Documented;
 import java.util.ArrayList;
 import java.util.List;
 
+@Deprecated
+@SuppressWarnings("deprecated")
+@AuthorInfo(name = "Bernhard", date = "30/10/2025")
 public class Inventory {
     private final List<GameItem> gameItems;
 
