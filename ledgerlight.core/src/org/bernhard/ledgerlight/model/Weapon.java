@@ -51,9 +51,9 @@ public class Weapon extends Item implements Describable, Durable {
     }
 
     @Override
-    public String describe() {
-        return "This weapon (" + getName() + " x" + getQuantity() +
-                ") deals " + getDamage() + " damage and has a durability of " + getDurability() + ".";
+    public void describe() {
+        System.out.println("This weapon (" + getName() + " x" + getQuantity() +
+                ") deals " + getDamage() + " damage and has a durability of " + getDurability() + ".");
     }
 
     public void swing(Difficulty durabilityCode) {

@@ -1,6 +1,6 @@
 package org.bernhard.ledgerlight.model;
 
-abstract class GameItem {
+public abstract class GameItem {
     private String name;
     private int quantity;
     private static int NEXT_ID = 0;
@@ -52,7 +52,7 @@ abstract class GameItem {
         return id;
     }
 
-    public String describe() {
-        return String.format("You have x%d of %s!\n", this.quantity, this.name);
+    public void describe() {
+        System.out.printf("You have x%d of %s!\n%n", this.quantity, this.name);
     }
 }

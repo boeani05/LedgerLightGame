@@ -17,8 +17,8 @@ public class Armor extends Item implements Describable, Durable {
     }
 
     @Override
-    public String describe() {
-        return String.format("This armor (%s (%s) x%d) has a defense of %d and a durability of %d.", getName(), getRarity(), getQuantity(), getDefense(), getDurability());
+    public void describe() {
+        System.out.printf("This armor (%s (%s) x%d) has a defense of %d and a durability of %d.%n", getName(), getRarity(), getQuantity(), getDefense(), getDurability());
     }
 
     @Override

@@ -1,10 +1,10 @@
 package org.bernhard.ledgerlight.model;
 
 public interface Describable {
-    String describe();
+    void describe();
 
     default void printDescription() {
-        System.out.println(describe());
+        describe();
     }
 
     static String format(String name, int qty) {

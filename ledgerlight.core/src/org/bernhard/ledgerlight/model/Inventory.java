@@ -2,9 +2,8 @@ package org.bernhard.ledgerlight.model;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
-@Deprecated
-@SuppressWarnings("deprecated")
 @AuthorInfo(name = "Bernhard", date = "30/10/2025")
 public class Inventory {
     private final List<GameItem> gameItems;
@@ -14,19 +13,23 @@ public class Inventory {
     }
 
     public void addItem(GameItem gameItem) {
-        if (gameItem == null) {
-            throw new IllegalArgumentException("org.bernhard.ledgerlight.model.Item cannot be null");
-        }
-        gameItems.add(gameItem);
+        GameItem validated = Optional.ofNullable(gameItem)
+                .filter(i -> i.getName() != null && !i.getName().isBlank())
+                .filter(i -> i.getQuantity() > 0)
+                .orElseThrow(() -> new IllegalArgumentException("Invalid item!"));
+        gameItems.add(validated);
     }
 
-    public GameItem getItemByName(String name) throws ItemNotFoundException {
-        for (GameItem item : gameItems) {
-            if (item.getName().equalsIgnoreCase(name)) {
-                return item;
+    public Optional<GameItem> getItemByName(String name) {
+
+        if (name == null || name.isBlank()) return Optional.empty();
+
+        for (GameItem gameItem : gameItems) {
+            if (gameItem.getName().equalsIgnoreCase(name)) {
+                return Optional.of(gameItem);
             }
         }
-        throw new ItemNotFoundException("org.bernhard.ledgerlight.model.Item " + name + " has not been found!");
+        return Optional.empty();
     }
 
     public void forEach(Action<GameItem> action) {
